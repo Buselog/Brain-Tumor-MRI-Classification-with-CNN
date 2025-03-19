@@ -44,7 +44,7 @@ def augment_image(image):  # Rastgele Döndürme
 
 # Veri yükleme fonksiyonu (veri artırma dahil)
 def load_data(dataset_path, img_size=128, augment_factor=2):
-    categories = ["no_tumor", "glioma_tumor", "meningioma_tumor", "pituitary_tumor"]
+    categories = ["notumor", "glioma", "meningioma", "pituitary"]
     data = []  # Tüm görüntüler data listesine eklenir
     labels = []  # Hangi tümör türü olduğu labels listesine eklenir
 
