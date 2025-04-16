@@ -22,8 +22,6 @@ print(f"✅ Test verisi: {X_val.shape}, Etiketler: {y_val.shape}")
 # Daha önce eğitilen modeliin geçmişini saklamak için dizinleri ayarla
 results_dir ="C:/Users/2022/Desktop/Brain-Tumor-MRI-Classification-with-CNN-main - V2/Brain-Tumor-MRI-Classification-with-CNN-main/BrainTumorClassificationWithCNN/brain_tumor_cnn/results"
 models_dir = os.path.join(results_dir, "models")
-vis_dir = os.path.join(results_dir, "visualizations")
-os.makedirs(vis_dir, exist_ok=True)  # Görselleştirme dizinini oluştur
 
 # Klasörleri oluştur (yoksa)
 os.makedirs(models_dir, exist_ok=True)
