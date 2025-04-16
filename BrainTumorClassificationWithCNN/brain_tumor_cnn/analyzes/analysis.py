@@ -109,28 +109,6 @@ def plot_precision_recall(y_true, y_probs, class_names):
     plt.legend()
     save_analysis_reports(analysis_dir, "precision_recall_history")
 
-# Yanlış sınıflandırılan görüntüleri gösterme
-def analyze_misclassified_images(model, X_val, y_true, class_names, num_samples=5):
-    y_pred_probs = model.predict(X_val)
-    y_pred = np.argmax(y_pred_probs, axis=1)
-    y_true_labels = np.argmax(y_true, axis=1)
-    misclassified_indices = np.where(y_pred != y_true_labels)[0]
-    
-    if len(misclassified_indices) == 0:
-        print("Tüm tahminler doğru!")
-        return
-    
-    misclassified_indices = np.random.choice(misclassified_indices, min(num_samples, len(misclassified_indices)), replace=False)
-    
-    plt.figure(figsize=(10, 5))
-    for i, idx in enumerate(misclassified_indices):
-        plt.subplot(1, num_samples, i + 1)
-        plt.imshow(X_val[idx].squeeze(), cmap='gray')
-        plt.title(f'Gerçek: {class_names[y_true_labels[idx]]}\nTahmin: {class_names[y_pred[idx]]}')
-        plt.axis('off')
-        
-    save_analysis_reports(analysis_dir, "misclassified_images_history")
-
 # Model Değerlendirme
 def evaluate_model(model, X_val, y_val, class_names):
     y_pred_probs = model.predict(X_val)
@@ -148,7 +126,6 @@ def evaluate_model(model, X_val, y_val, class_names):
     plot_confusion_matrix(y_true, y_pred, class_names)
     plot_roc_curves(y_val, y_pred_probs, class_names)
     plot_precision_recall(y_val, y_pred_probs, class_names)
-    analyze_misclassified_images(model, X_val, y_val, class_names)
 
     # Sınıf bazında doğruluklar
     cm = confusion_matrix(y_true, y_pred)
