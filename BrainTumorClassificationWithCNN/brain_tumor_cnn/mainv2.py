@@ -13,7 +13,7 @@ from models.model import build_model
 
 dataset_path = "C:/Users/2022/Desktop/Brain-Tumor-MRI-Classification-with-CNN-main - V2/Brain-Tumor-MRI-Classification-with-CNN-main/BrainTumorClassificationWithCNN/brain_tumor_cnn/dataset"
 print(f"Veri seti yolu: {dataset_path}") 
-X_train, y_train, pairs = load_data(dataset_path, mode="train")
+X_train, y_train = load_data(dataset_path, mode="train")
 X_val, y_val = load_data(dataset_path, mode="test")
 
 print(f"✅ Eğitim verisi: {X_train.shape}, Etiketler: {y_train.shape}")
