@@ -10,7 +10,6 @@ from keras.callbacks import ModelCheckpoint, EarlyStopping
 from sklearn.metrics import classification_report, confusion_matrix
 from utils.preprocessv2 import load_data
 from models.model import build_model
-from analyzes.vis_prepos.vis_ppos import save_augmentation_pairs
 
 dataset_path = "C:/Users/2022/Desktop/Brain-Tumor-MRI-Classification-with-CNN-main - V2/Brain-Tumor-MRI-Classification-with-CNN-main/BrainTumorClassificationWithCNN/brain_tumor_cnn/dataset"
 print(f"Veri seti yolu: {dataset_path}") 
@@ -99,8 +98,6 @@ else:
 
 # Model değerlendirme
 analysis.evaluate_model(model, X_val, y_val, class_names=["No Tumor", "Glioma", "Meningioma", "Pituitary"])
-save_augmentation_pairs(pairs, vis_dir)
-
 
 model.summary()
 
