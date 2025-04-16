@@ -30,7 +30,7 @@ os.makedirs(vis_dir, exist_ok=True)  # Görselleştirme dizinini oluştur
 os.makedirs(models_dir, exist_ok=True)
 
 # Model ve history dosya yolları
-model_path = os.path.join(models_dir, "best_model.h5")
+model_path = os.path.join(models_dir, "brain_tumor_ann.h5")
 history_path = os.path.join(models_dir, "training_history.json")
 
 # Daha önce eğitilmiş model var mı kontrol et
