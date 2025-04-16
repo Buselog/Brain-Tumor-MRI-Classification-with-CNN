@@ -79,7 +79,6 @@ def load_data(dataset_path, img_size=128, augment_factor=1, mode="train", collec
 
                     # 👇 Sadece ilk birkaç örnek için orijinal ve augment edilmiş halini kaydet
                     if collect_augmented_examples and len(augmentation_pairs) < 30:
-                        print(len(augmentation_pairs))
                         augmentation_pairs.append((image, augmented_image))
 
     data = np.array(data) / 255.0 # data içindeki sonuç verilerine normalizasyon (0-1 aralığına çekme) uygulama
